@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "57fe99db-4aaa-4956-9824-c9289eb02c74",
+		"name": "Openhack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://team4search.search.windows.net/indexes/?api-version=2020-06-30",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "1E06511BBB85F267480132A504451BBE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://team4search.search.windows.net/indexes/?api-version=2020-06-30",
+					"protocol": "https",
+					"host": [
+						"team4search",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						""
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://team4search.search.windows.net/indexes/azureblob-index/docs/search?api-version=2020-06-30",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "6A6B09942C4559DF62F3EEE6A11CB478",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"search\":\"*\"\r\n}"
+				},
+				"url": {
+					"raw": "https://team4search.search.windows.net/indexes/azureblob-index/docs/search?api-version=2020-06-30",
+					"protocol": "https",
+					"host": [
+						"team4search",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"azureblob-index",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://team4search.search.windows.net/indexes/azureblob-index/docs/search?api-version=2020-06-30",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "6A6B09942C4559DF62F3EEE6A11CB478",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"search\":\"\\\"Las Vegas\\\"\",\r\n    \"queryType\":\"full\",\r\n    \"select\":\"content,metadata_storage_size,metadata_storage_last_modified,metadata_storage_name,metadata_storage_path\" \r\n}"
+				},
+				"url": {
+					"raw": "https://team4search.search.windows.net/indexes/azureblob-index/docs/search?api-version=2020-06-30",
+					"protocol": "https",
+					"host": [
+						"team4search",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"azureblob-index",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://team4search.search.windows.net/indexes/azureblob-index/docs/search?api-version=2020-06-30",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "6A6B09942C4559DF62F3EEE6A11CB478",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"search\":\"(content:\\\"buckingham palace\\\" && London)\",\r\n    \"queryType\":\"full\",\r\n    \"count\":\"true\"\r\n}"
+				},
+				"url": {
+					"raw": "https://team4search.search.windows.net/indexes/azureblob-index/docs/search?api-version=2020-06-30",
+					"protocol": "https",
+					"host": [
+						"team4search",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"azureblob-index",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://team4search.search.windows.net/indexes/azureblob-index/docs/search?api-version=2020-06-30",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "6A6B09942C4559DF62F3EEE6A11CB478",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"search\":\"\\\"New York\\\"\" ,\r\n    \"queryType\":\"full\",\r\n    \"count\":\"true\"\r\n}"
+				},
+				"url": {
+					"raw": "https://team4search.search.windows.net/indexes/azureblob-index/docs/search?api-version=2020-06-30",
+					"protocol": "https",
+					"host": [
+						"team4search",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"azureblob-index",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://team4search.search.windows.net/indexes/azureblob-index/docs/search?api-version=2020-06-30",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "6A6B09942C4559DF62F3EEE6A11CB478",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"search\":\"\\\"Las Vegas\\\"\" ,\r\n    \"filter\":\"not search.ismatch('review', 'url')\",\r\n    \"count\":\"true\"\r\n}"
+				},
+				"url": {
+					"raw": "https://team4search.search.windows.net/indexes/azureblob-index2/docs/search?api-version=2020-06-30",
+					"protocol": "https",
+					"host": [
+						"team4search",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"azureblob-index2",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
