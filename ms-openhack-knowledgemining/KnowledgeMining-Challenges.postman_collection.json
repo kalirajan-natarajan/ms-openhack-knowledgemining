@@ -1,0 +1,48 @@
+{
+	"info": {
+		"_postman_id": "49daaf3f-9258-4a9b-9e2d-ee2962bf12bf",
+		"name": "KnowledgeMining-Challenges",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Challenge1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "EndpointKey 203e6726-b166-45fc-b133-818bc4b55fad",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"question\":\"cancel booking\"}"
+				},
+				"url": {
+					"raw": "https://team4hacker4qna.azurewebsites.net/qnamaker/knowledgebases/1b0ef085-afe6-4392-97da-dc22e98b04ff/generateAnswer",
+					"protocol": "https",
+					"host": [
+						"team4hacker4qna",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"qnamaker",
+						"knowledgebases",
+						"1b0ef085-afe6-4392-97da-dc22e98b04ff",
+						"generateAnswer"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
