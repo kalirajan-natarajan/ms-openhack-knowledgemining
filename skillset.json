@@ -22,7 +22,7 @@
       {
           "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
           "categories": [
-              "Person", "Location"
+              "Person", "Location", "URL"
           ],
           "defaultLanguageCode": "",
           "minimumPrecision": 0,
@@ -44,17 +44,16 @@
               {
                   "name": "locations",
                   "targetName": "locations"
+              },
+              {
+                  "name": "urls",
+                  "targetName": "urls"
               }
           ]
       },
   
       {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-      "defaultLanguageCode": "",
-      "maxKeyPhraseCount": 0,
-      "name": "",
-      "description": "",
-      "context": "",
       "inputs": [
           {
               "name": "text",

@@ -57,6 +57,10 @@
     {
       "sourceFieldName": "/document/persons",
       "targetFieldName": "persons"
+    },
+    {
+      "sourceFieldName": "/document/urls",
+      "targetFieldName": "urls"
     }
   ]
 }
