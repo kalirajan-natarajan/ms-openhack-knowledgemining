@@ -61,6 +61,36 @@
         "retrievable": true,
         "sortable": true,
         "searchable": false
+      },
+      {
+        "name": "sentiment_score",
+        "type": "Edm.Double",
+        "facetable": false,
+        "filterable": true,
+        "key": false,
+        "retrievable": true,
+        "searchable": false,
+        "sortable": true
+      },
+      {
+        "name": "key_phrases",
+        "type": "Collection(Edm.String)",
+        "facetable": false,
+        "filterable": true,
+        "key": false,
+        "retrievable": true,
+        "searchable": false,
+        "sortable": false
+      },
+      {
+        "name": "enriched",
+        "type": "Edm.String",
+        "facetable": false,
+        "filterable": false,
+        "key": false,
+        "retrievable": true,
+        "searchable": false,
+        "sortable": false
       }
     ]
   }
