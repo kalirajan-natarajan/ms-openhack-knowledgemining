@@ -121,6 +121,59 @@
         "retrievable": true,
         "searchable": false,
         "sortable": false
-      }
+      },
+      {
+        "name": "tags",
+        "type": "Collection(Edm.ComplexType)",
+        "fields": [
+            {
+                "name": "name",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": true,
+                "facetable": false
+            },
+            {
+                "name": "confidence",
+                "type": "Edm.Double",
+                "searchable": false,
+                "filterable": false,
+                "facetable": false
+            }
+        ]
+    },
+    {
+      "name": "description",
+      "type": "Collection(Edm.ComplexType)",
+      "fields": [
+          {
+              "name": "tags",
+              "type": "Collection(Edm.String)",
+              "searchable": true,
+              "filterable": true,
+              "facetable": false
+          },
+          {
+              "name": "captions",
+              "type": "Collection(Edm.ComplexType)",
+              "fields": [
+                  {
+                      "name": "text",
+                      "type": "Edm.String",
+                      "searchable": true,
+                      "filterable": true,
+                      "facetable": false
+                  },
+                  {
+                      "name": "confidence",
+                      "type": "Edm.Double",
+                      "searchable": false,
+                      "filterable": false,
+                      "facetable": false
+                  }
+              ]
+          }
+      ]
+  }
     ]
   }
