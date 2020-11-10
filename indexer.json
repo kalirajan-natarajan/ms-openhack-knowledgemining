@@ -38,14 +38,25 @@
     {
       "sourceFieldName": "metadata_storage_last_modified",
       "targetFieldName": "last_modified"
-    },
+    }
+  ],
+  "outputFieldMappings": [
+   
     {
-      "sourceFieldName": "keyPhrases",
+      "sourceFieldName": "/document/keyPhrases",
       "targetFieldName": "key_phrases"
     },
     {
-      "sourceFieldName": "sentiment_score",
+      "sourceFieldName": "/document/sentiment_score",
       "targetFieldName": "sentiment_score"
+    },
+    {
+      "sourceFieldName": "/document/locations",
+      "targetFieldName": "locations"
+    },
+    {
+      "sourceFieldName": "/document/persons",
+      "targetFieldName": "persons"
     }
   ]
 }

@@ -83,6 +83,26 @@
         "sortable": false
       },
       {
+        "name": "locations",
+        "type": "Collection(Edm.String)",
+        "facetable": false,
+        "filterable": true,
+        "key": false,
+        "retrievable": true,
+        "searchable": false,
+        "sortable": false
+      },
+      {
+        "name": "persons",
+        "type": "Collection(Edm.String)",
+        "facetable": false,
+        "filterable": true,
+        "key": false,
+        "retrievable": true,
+        "searchable": false,
+        "sortable": false
+      },
+      {
         "name": "enriched",
         "type": "Edm.String",
         "facetable": false,
