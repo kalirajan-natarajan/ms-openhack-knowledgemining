@@ -1,0 +1,79 @@
+{
+    "name": "traveldocenricher",
+    "description": 
+    "Extract sentiment from travel review, extract company names, and then find additional information about each company mentioned.",
+    "skills":
+    [
+      {
+        "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
+        "inputs": [
+          {
+            "name": "text",
+            "source": "/document/content"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "score",
+            "targetName": "sentiment_score"
+          }
+        ]
+      },
+      {
+          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+          "categories": [
+              "Person", "Location"
+          ],
+          "defaultLanguageCode": "",
+          "minimumPrecision": 0,
+          "includeTypelessEntities": true,
+          "name": "",
+          "description": "",
+          "context": "",
+          "inputs": [
+              {
+                  "name": "text",
+                  "source": "/document/content"
+              }
+          ],
+          "outputs": [
+              {
+                  "name": "persons",
+                  "targetName": "persons"
+              },
+              {
+                  "name": "locations",
+                  "targetName": "locations"
+              }
+          ]
+      },
+  
+      {
+      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+      "defaultLanguageCode": "",
+      "maxKeyPhraseCount": 0,
+      "name": "",
+      "description": "",
+      "context": "",
+      "inputs": [
+          {
+              "name": "text",
+              "source": "/document/content"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "keyPhrases",
+              "targetName": "keyPhrases"
+          }
+      ]
+      }
+  
+    ],
+    "cognitiveServices": 
+      {
+      "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+      "description": "mycogsvcs resource in West US 2",
+      "key": "cd054f918bbf45ae958f1c81020f99ff"
+      }
+  }

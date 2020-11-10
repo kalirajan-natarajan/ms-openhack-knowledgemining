@@ -1,0 +1,10 @@
+{
+  "name": "team4searchds2",
+  "type": "azureblob",
+  "credentials": {
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=team4search;AccountKey=0twWbpR4po8ZD1Xg0mQxdETnl3q2NuBf9bUNMwCDXJeUz9jgdBlwE++ScuC4rKtdtMLOufIo/4iWmwQFtWIGEg==;EndpointSuffix=core.windows.net"
+  },
+  "container": {
+    "name": "team4container"  
+    }
+}
