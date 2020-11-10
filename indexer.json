@@ -8,7 +8,8 @@
     "maxFailedItemsPerBatch": 0,
     "configuration": {
       "dataToExtract": "contentAndMetadata",
-      "parsingMode": "default"
+      "parsingMode": "default",
+     	"imageAction": "generateNormalizedImages"
     }
   },
   "fieldMappings": [
@@ -61,6 +62,14 @@
     {
       "sourceFieldName": "/document/urls",
       "targetFieldName": "urls"
+    },
+    {
+      "sourceFieldName": "/document/normalized_images/*/tags/*",
+      "targetFieldName": "tags"
+    },
+    {
+      "sourceFieldName": "/document/normalized_images/*/description",
+      "targetFieldName": "description"
     }
   ]
 }
