@@ -131,6 +131,24 @@
               "name": "description"
           }
       ]
+  },
+  {
+    "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+    "description": "A custom skill that will return a list of the top ten words",
+    "uri": "https://team4topten.azurewebsites.net/api/topTen?code=ykbgOVSwxwVBWA89nCracar0X99WFhjtHT4BPBG/3pKtwolWgrAutg==",
+    "batchSize": 4,
+    "context": "/document",
+    "inputs": [
+      {
+        "name": "text",
+        "source": "/document/merged_text"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "words"
+      }
+    ]
   }
     ],
     "cognitiveServices": 

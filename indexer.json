@@ -71,5 +71,9 @@
       "sourceFieldName": "/document/normalized_images/*/description",
       "targetFieldName": "description"
     }
+    {
+      "sourceFieldName":"words",
+      "targetFieldName":"toptenwords"
+    }
   ]
 }
