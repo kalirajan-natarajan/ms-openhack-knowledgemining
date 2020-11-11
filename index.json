@@ -20,7 +20,10 @@
             "retrievable": true,
             "searchable": true,
             "sortable": false,
-            "analyzer": "standard.lucene"
+            "analyzer": "standard.lucene",
+            "synonymMaps": [
+                "locationsynonyms"
+            ]
         },
         {
             "name": "url",
@@ -79,8 +82,12 @@
             "filterable": true,
             "key": false,
             "retrievable": true,
-            "searchable": false,
-            "sortable": false
+            "searchable": true,
+            "sortable": false,
+            "analyzer": "standard.lucene",
+            "synonymMaps": [
+                "locationsynonyms"
+            ]
         },
         {
             "name": "locations",
@@ -89,8 +96,12 @@
             "filterable": true,
             "key": false,
             "retrievable": true,
-            "searchable": false,
-            "sortable": false
+            "searchable": true,
+            "sortable": false,
+            "analyzer": "standard.lucene",
+            "synonymMaps": [
+                "locationsynonyms"
+            ]
         },
         {
             "name": "persons",
@@ -162,7 +173,11 @@
                             "type": "Edm.String",
                             "searchable": true,
                             "filterable": true,
-                            "facetable": false
+                            "facetable": false,
+                            "analyzer": "standard.lucene",
+                            "synonymMaps": [
+                                "locationsynonyms"
+                            ]
                         },
                         {
                             "name": "confidence",
