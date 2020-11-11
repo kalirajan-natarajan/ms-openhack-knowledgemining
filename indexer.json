@@ -1,79 +1,78 @@
 {
-  "name": "azureblob-indexer2",
-  "dataSourceName": "team4searchds2",
-  "targetIndexName": "azureblob-index2",
-  "skillsetName": "traveldocenricher",
-  "parameters": {
-    "maxFailedItems": 0,
-    "maxFailedItemsPerBatch": 0,
-    "configuration": {
-      "dataToExtract": "contentAndMetadata",
-      "parsingMode": "default",
-     	"imageAction": "generateNormalizedImages"
-    }
-  },
-  "fieldMappings": [
-    {
-      "sourceFieldName": "metadata_storage_path",
-      "targetFieldName": "id",
-      "mappingFunction": {
-        "name": "base64Encode"
-      }
+    "name": "azureblob-indexer2",
+    "dataSourceName": "team4searchds2",
+    "targetIndexName": "azureblob-index2",
+    "skillsetName": "traveldocenricher",
+    "parameters": {
+        "maxFailedItems": 0,
+        "maxFailedItemsPerBatch": 0,
+        "configuration": {
+            "dataToExtract": "contentAndMetadata",
+            "parsingMode": "default",
+            "imageAction": "generateNormalizedImages"
+        }
     },
-    {
-      "sourceFieldName": "metadata_storage_path",
-      "targetFieldName": "url"
-    },
-    {
-      "sourceFieldName": "content",
-      "targetFieldName": "content"
-    },
-    {
-      "sourceFieldName": "metadata_storage_name",
-      "targetFieldName": "file_name"
-    },
-    {
-      "sourceFieldName": "metadata_storage_size",
-      "targetFieldName": "size"
-    },
-    {
-      "sourceFieldName": "metadata_storage_last_modified",
-      "targetFieldName": "last_modified"
-    }
-  ],
-  "outputFieldMappings": [
-   
-    {
-      "sourceFieldName": "/document/keyPhrases",
-      "targetFieldName": "key_phrases"
-    },
-    {
-      "sourceFieldName": "/document/sentiment_score",
-      "targetFieldName": "sentiment_score"
-    },
-    {
-      "sourceFieldName": "/document/locations",
-      "targetFieldName": "locations"
-    },
-    {
-      "sourceFieldName": "/document/persons",
-      "targetFieldName": "persons"
-    },
-    {
-      "sourceFieldName": "/document/urls",
-      "targetFieldName": "urls"
-    },
-    {
-      "sourceFieldName": "/document/normalized_images/*/tags/*",
-      "targetFieldName": "tags"
-    },
-    {
-      "sourceFieldName": "/document/normalized_images/*/description",
-      "targetFieldName": "description"
-    }
-    {
-      "sourceFieldName":"words",
-      "targetFieldName":"toptenwords"
-    }
-  ]
+    "fieldMappings": [
+        {
+            "sourceFieldName": "metadata_storage_path",
+            "targetFieldName": "id",
+            "mappingFunction": {
+                "name": "base64Encode"
+            }
+        },
+        {
+            "sourceFieldName": "metadata_storage_path",
+            "targetFieldName": "url"
+        },
+        {
+            "sourceFieldName": "content",
+            "targetFieldName": "content"
+        },
+        {
+            "sourceFieldName": "metadata_storage_name",
+            "targetFieldName": "file_name"
+        },
+        {
+            "sourceFieldName": "metadata_storage_size",
+            "targetFieldName": "size"
+        },
+        {
+            "sourceFieldName": "metadata_storage_last_modified",
+            "targetFieldName": "last_modified"
+        }
+    ],
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": "/document/keyPhrases",
+            "targetFieldName": "key_phrases"
+        },
+        {
+            "sourceFieldName": "/document/sentiment_score",
+            "targetFieldName": "sentiment_score"
+        },
+        {
+            "sourceFieldName": "/document/locations",
+            "targetFieldName": "locations"
+        },
+        {
+            "sourceFieldName": "/document/persons",
+            "targetFieldName": "persons"
+        },
+        {
+            "sourceFieldName": "/document/urls",
+            "targetFieldName": "urls"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/tags/*",
+            "targetFieldName": "tags"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/description",
+            "targetFieldName": "description"
+        },
+        {
+            "sourceFieldName": "/document/words",
+            "targetFieldName": "toptenwords"
+        }
+    ]
 }

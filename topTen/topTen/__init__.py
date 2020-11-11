@@ -7,26 +7,31 @@ import azure.functions as func
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
-
+    
     text = req.params.get('text')
     if not text:
         try:
             req_body = req.get_json()
+            print(req.get_json())
         except ValueError:
             pass
         else:
-            text = req_body.get('text')
+            doc_list = req_body.get('values')
 
-    if text:
-        return func.HttpResponse(
-                                json.dumps(get_top_ten_words(text)),
-                                mimetype="application/json"
-        )  
+    result = {"values":[]}
+    if doc_list:
+        for entry in doc_list:
+            record_id = entry["recordId"]
+            top_ten = get_top_ten_words(entry['data']['text'])
+            result["values"].append({"recordId":record_id, "data":top_ten,"errors":None,"warnings":None})
+        return func.HttpResponse(json.dumps(result), mimetype="application/json")
     else:
         return func.HttpResponse(
-             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-             status_code=200
+             "Invalid body",
+             status_code=400
         )
+
+    
 
 def get_top_ten_words(text):
 
