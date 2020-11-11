@@ -19,7 +19,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     if text:
         return func.HttpResponse(
-                                json.dumps(get_top_ten_words(text)),
+                                get_top_ten_words(text),
                                 mimetype="application/json"
         )  
     else:

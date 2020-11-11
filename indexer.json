@@ -70,9 +70,9 @@
     {
       "sourceFieldName": "/document/normalized_images/*/description",
       "targetFieldName": "description"
-    }
+    },
     {
-      "sourceFieldName":"words",
+      "sourceFieldName":"/document/words",
       "targetFieldName":"toptenwords"
     }
   ]
