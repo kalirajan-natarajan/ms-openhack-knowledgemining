@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9989212e-1ff6-4fcc-aa32-8941c014226f",
+		"_postman_id": "48960ff4-8ba0-4f47-b94d-d575018ff2e0",
 		"name": "Challenge 3 Questions",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -51,24 +51,24 @@
 			"response": []
 		},
 		{
-			"name": "Challenge 3 - q3 - Matthew Daughtry",
+			"name": "Challenge 3 - key points and score",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
+						"value": "application/json",
+						"type": "text"
 					},
 					{
 						"key": "api-key",
-						"type": "text",
-						"value": "6A6B09942C4559DF62F3EEE6A11CB478"
+						"value": "6A6B09942C4559DF62F3EEE6A11CB478",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"search\":\"*\" ,\r\n    \"filter\":\"persons/any(person: search.in(person, 'Matthew Daughtry'))\",\r\n    \"count\":\"true\" ,\r\n    \"select\":\"key_phrases,sentiment_score,persons\"\r\n}"
+					"raw": "{\r\n\t\"search\":\"*\" ,\r\n    \"filter\":\"not urls/any()\",\r\n    \"count\":\"true\" ,\r\n    \"select\":\"urls\"\r\n}"
 				},
 				"url": {
 					"raw": "https://team4search.search.windows.net/indexes/azureblob-index2/docs/search?api-version=2020-06-30",
@@ -96,7 +96,55 @@
 			"response": []
 		},
 		{
-			"name": "Challenge 3 - q5 - collateral with URLs",
+			"name": "Challenge 4 - success1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api-key",
+						"value": "6A6B09942C4559DF62F3EEE6A11CB478",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"search\":\"*\" ,\r\n    \"filter\":\"not urls/any()\",\r\n    \"count\":\"true\" ,\r\n    \"select\":\"urls\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://team4search.search.windows.net/indexes/azureblob-index2/docs/search?api-version=2020-06-30",
+					"protocol": "https",
+					"host": [
+						"team4search",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"azureblob-index2",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Challenge 4 - success2",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -113,7 +161,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"search\":\"*\" ,\r\n    \"filter\":\"search.ismatch('collateral', 'url') and urls/any()\",\r\n    \"count\":\"true\",\r\n    \"select\":\"url,urls\"\r\n}"
+					"raw": "{\r\n\t\"search\":\"bridge\" ,\r\n    \"searchFields\":\"description/captions/text\",\r\n    \"filter\":\"\",\r\n    \"count\":\"true\" ,\r\n    \"select\":\"description/captions/text\"\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://team4search.search.windows.net/indexes/azureblob-index2/docs/search?api-version=2020-06-30",
