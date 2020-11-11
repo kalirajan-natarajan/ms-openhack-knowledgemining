@@ -1,160 +1,162 @@
 {
     "name": "traveldocenricher",
-    "description": 
-    "Extract sentiment from travel review, extract company names, and then find additional information about each company mentioned.",
-    "skills":
-    [
-      {
-        "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
-        "inputs": [
-          {
-            "name": "text",
-            "source": "/document/content"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "score",
-            "targetName": "sentiment_score"
-          }
-        ]
-      },
-      {
-          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-          "categories": [
-              "Person", "Location", "URL"
-          ],
-          "defaultLanguageCode": "",
-          "minimumPrecision": 0,
-          "includeTypelessEntities": true,
-          "name": "",
-          "description": "",
-          "context": "",
-          "inputs": [
-              {
-                  "name": "text",
-                  "source": "/document/merged_text"
-              }
-          ],
-          "outputs": [
-              {
-                  "name": "persons",
-                  "targetName": "persons"
-              },
-              {
-                  "name": "locations",
-                  "targetName": "locations"
-              },
-              {
-                  "name": "urls",
-                  "targetName": "urls"
-              }
-          ]
-      },
-  
-      {
-      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-      "inputs": [
-          {
-              "name": "text",
-              "source": "/document/merged_text"
-          }
-      ],
-      "outputs": [
-          {
-              "name": "keyPhrases",
-              "targetName": "keyPhrases"
-          }
-      ]
-      },
-      {
-        "description": "Extract text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": "en",
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text"
-          }
-        ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
-      "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
-      "context": "/document",
-      "insertPreTag": " ",
-      "insertPostTag": " ",
-      "inputs": [
+    "description": "Extract sentiment from travel review, extract company names, and then find additional information about each company mentioned.",
+    "skills": [
         {
-          "name":"text", "source": "/document/content"
+            "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/content"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "score",
+                    "targetName": "sentiment_score"
+                }
+            ]
         },
         {
-          "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
+            "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+            "categories": [
+                "Person",
+                "Location",
+                "URL"
+            ],
+            "defaultLanguageCode": "",
+            "minimumPrecision": 0,
+            "includeTypelessEntities": true,
+            "name": "",
+            "description": "",
+            "context": "",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/merged_text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "persons",
+                    "targetName": "persons"
+                },
+                {
+                    "name": "locations",
+                    "targetName": "locations"
+                },
+                {
+                    "name": "urls",
+                    "targetName": "urls"
+                }
+            ]
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
-        }
-      ],
-      "outputs": [
+            "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/merged_text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "keyPhrases",
+                    "targetName": "keyPhrases"
+                }
+            ]
+        },
         {
-          "name": "mergedText", "targetName" : "merged_text"
+            "description": "Extract text (plain and structured) from image.",
+            "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+            "context": "/document/normalized_images/*",
+            "defaultLanguageCode": "en",
+            "detectOrientation": true,
+            "inputs": [
+                {
+                    "name": "image",
+                    "source": "/document/normalized_images/*"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "text"
+                }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
+            "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
+            "context": "/document",
+            "insertPreTag": " ",
+            "insertPostTag": " ",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/content"
+                },
+                {
+                    "name": "itemsToInsert",
+                    "source": "/document/normalized_images/*/text"
+                },
+                {
+                    "name": "offsets",
+                    "source": "/document/normalized_images/*/contentOffset"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "mergedText",
+                    "targetName": "merged_text"
+                }
+            ]
+        },
+        {
+            "description": "Extract image analysis.",
+            "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+            "context": "/document/normalized_images/*",
+            "defaultLanguageCode": "en",
+            "visualFeatures": [
+                "tags",
+                "description"
+            ],
+            "inputs": [
+                {
+                    "name": "image",
+                    "source": "/document/normalized_images/*"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "tags"
+                },
+                {
+                    "name": "description"
+                }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+            "description": "A custom skill that will return a list of the top ten words",
+            "uri": "https://team4topten.azurewebsites.net/api/topTen?code=ykbgOVSwxwVBWA89nCracar0X99WFhjtHT4BPBG/3pKtwolWgrAutg==",
+            "batchSize": 4,
+            "context": "/document",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/merged_text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "words"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "description": "Extract image analysis.",
-      "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
-      "context": "/document/normalized_images/*",
-      "defaultLanguageCode": "en",
-      "visualFeatures": [
-          "tags",
-          "description"
-      ],
-      "inputs": [
-          {
-              "name": "image",
-              "source": "/document/normalized_images/*"
-          }
-      ],
-      "outputs": [
-          {
-              "name": "tags"
-          },
-          {
-              "name": "description"
-          }
-      ]
-  },
-  {
-    "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-    "description": "A custom skill that will return a list of the top ten words",
-    "uri": "https://team4topten.azurewebsites.net/api/topTen?code=ykbgOVSwxwVBWA89nCracar0X99WFhjtHT4BPBG/3pKtwolWgrAutg==",
-    "batchSize": 4,
-    "context": "/document",
-    "inputs": [
-      {
-        "name": "text",
-        "source": "/document/merged_text"
-      }
     ],
-    "outputs": [
-      {
-        "name": "words"
-      }
-    ]
-  }
-    ],
-    "cognitiveServices": 
-      {
-      "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-      "description": "mycogsvcs resource in West US 2",
-      "key": "cd054f918bbf45ae958f1c81020f99ff"
-      }
-  }
+    "cognitiveServices": {
+        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+        "description": "mycogsvcs resource in West US 2",
+        "key": "cd054f918bbf45ae958f1c81020f99ff"
+    }
+}
