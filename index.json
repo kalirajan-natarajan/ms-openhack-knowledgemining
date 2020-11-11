@@ -200,5 +200,44 @@
             "retrievable": true,
             "analyzer": "standard.lucene"
         }
-    ]
+    ],
+    "suggesters": [
+        {
+          "name": "sg",
+          "searchMode": "analyzingInfixMatching",
+          "sourceFields": ["locations"]
+        }
+      ],
+      "scoringProfiles": [
+        {  
+          "name":"scoring",
+          "text": {  
+            "weights": {  
+              "key_phrases": 3
+            }                              
+          },
+          "functions": [  
+            {  
+              "type": "freshness",  
+              "fieldName": "last_modified",  
+              "boost": 3,  
+              "interpolation": "quadratic",  
+              "freshness": {  
+                "boostingDuration": "P365D"  
+              }  
+            },  
+            {
+              "type": "magnitude",  
+              "fieldName": "size",  
+              "boost": 3,  
+              "interpolation": "linear",  
+              "magnitude": {  
+                "boostingRangeStart": 1,  
+                "boostingRangeEnd": 500000,  
+                "constantBoostBeyondRange": true  
+              }  
+            }  
+          ]                  
+        }            
+      ]
 }

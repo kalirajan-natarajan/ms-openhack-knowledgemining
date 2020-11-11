@@ -192,6 +192,102 @@
 			"response": []
 		},
 		{
+			"name": "Challenge 6 - suggester",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "6A6B09942C4559DF62F3EEE6A11CB478"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"search\":\"bridge\" ,\r\n    \"searchFields\":\"description/captions/text\",\r\n    \"filter\":\"\",\r\n    \"count\":\"true\" ,\r\n    \"select\":\"description/captions/text\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://team4search.search.windows.net/indexes/azureblob-index2/docs/search?api-version=2020-06-30",
+					"protocol": "https",
+					"host": [
+						"team4search",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"azureblob-index2",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Challenge 6 - scoringprofiles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "6A6B09942C4559DF62F3EEE6A11CB478"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"search\":\"bridge\" ,\r\n    \"searchFields\":\"description/captions/text\",\r\n    \"filter\":\"\",\r\n    \"count\":\"true\" ,\r\n    \"select\":\"description/captions/text\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://team4search.search.windows.net/indexes/azureblob-index2/docs/search?api-version=2020-06-30",
+					"protocol": "https",
+					"host": [
+						"team4search",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"azureblob-index2",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Challenge 3 - has given location",
 			"request": {
 				"method": "POST",
